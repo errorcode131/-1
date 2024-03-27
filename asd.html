@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>현재 시간</title>
+  </head>
+  <body>
+    <h1>현재 시간은 <span id="currentTime"></span>입니다.</h1>
+
+    <script>
+      // 현재 시간을 가져오는 함수
+      function getCurrentTime() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var timeString = hours + ':' + minutes + ':' + seconds;
+
+        return timeString;
+      }
+
+      // 1초마다 현재 시간을 갱신하는 함수
+      function updateTime() {
+        var currentTimeElement = document.getElementById('currentTime');
+        currentTimeElement.textContent = getCurrentTime();
+      }
+      
+      // 1초마다 updateTime 함수를 실행
+      setInterval(updateTime, 0);
+    </script>
+  </body>
+</html>
